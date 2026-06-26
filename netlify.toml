@@ -1,0 +1,25 @@
+[build]
+  command = "pnpm run build"
+  # Static export output dir — REQUIRED for Netlify Forms capture (see next.config).
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NEXT_TELEMETRY_DISABLED = "1"
+  NEXT_DISABLE_TURBOPACK = "1"
+  NPM_FLAGS = "--legacy-peer-deps"
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+  NETLIFY_USE_NPM = "true"
+
+# NOTE: @netlify/plugin-nextjs INTENTIONALLY REMOVED — its runtime intercepts
+# form POSTs and breaks Netlify Forms lead capture. Do NOT re-add it.
+
+[[notifications]]
+  event = "submission_created"
+  url = "https://josh.jam-bot.com/social-api/api/leads/webhook/netlify?tenant=josh&site=flagstaffinsurance.com"
+  form = "quote"
+
+[[notifications]]
+  event = "submission_created"
+  url = "https://josh.jam-bot.com/social-api/api/leads/webhook/netlify?tenant=josh&site=flagstaffinsurance.com"
+  form = "contact"

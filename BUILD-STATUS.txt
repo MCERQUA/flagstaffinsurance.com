@@ -1,0 +1,55 @@
+framinginsurance.com — BUILD STATUS
+======================================
+Build: GREEN (pnpm build exits 0)
+Date: 2026-06-21
+
+QUALITY GATE CHECKLIST
+----------------------
+✅ 7 service pages (GL, WC, tools, commercial auto, completed ops, surety bond, umbrella)
+✅ 4 blog posts (MDX in src/content/posts/)
+✅ 9 homepage sections (Hero, TrustBar, ServicesGrid, WhyChooseUs, Process, Stats, Testimonials, FAQ, CTABand)
+✅ pnpm build exits 0 — 24 static routes generated
+✅ 9 real HF FLUX.1-schnell generated images (all >10KB)
+✅ Netlify forms (quote + contact) with webhook in netlify.toml
+✅ sitemap.ts + robots.ts + public/llms.txt present
+
+ROUTE COUNT: 24 routes
+- / (homepage)
+- /about
+- /blog
+- /blog/framing-contractor-insurance-guide
+- /blog/fall-protection-workers-comp-framers
+- /blog/completed-operations-framing-contractors
+- /blog/general-liability-framing-subcontractors
+- /contact
+- /privacy
+- /quote
+- /robots.txt
+- /services
+- /services/general-liability-insurance
+- /services/workers-compensation-insurance
+- /services/tools-equipment-insurance
+- /services/commercial-auto-insurance
+- /services/completed-operations-coverage
+- /services/contractor-surety-bond
+- /services/commercial-umbrella-insurance
+- /sitemap.xml
+- /terms
+- /_not-found
+
+DESIGN SYSTEM
+-------------
+Primary: #2D4A22 (forest green)
+Accent/CTA: #E8821A (ember orange)
+Background: #FDFAF7 (warm white)
+Fonts: Raleway (headings) + Lato (body)
+Style: Warm, structural, professional — framing/lumber aesthetic
+
+IMAGES (9 total)
+----------------
+hero-framing.jpg, gl-insurance.jpg, workers-comp.jpg, tools-lumber.jpg,
+framing-structure.jpg, steel-framing.jpg, about-agent.jpg, og-image.jpg, blog-default.jpg
+
+STACK
+-----
+Next.js 15.5.19 · React 19 · TypeScript · Tailwind v3 · motion · lenis · lucide-react · gray-matter
