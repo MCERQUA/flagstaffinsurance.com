@@ -26,8 +26,8 @@ export function Hero() {
 
             <FadeIn delay={0.05}>
               <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-bark font-bold leading-tight mb-6">
-                Insurance for the{" "}
-                <span className="text-forest-green">People of Flagstaff</span>
+                Insurance For{" "}
+                <span className="text-forest-green">Flagstaff!</span>
               </h1>
             </FadeIn>
 

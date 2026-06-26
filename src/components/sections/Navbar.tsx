@@ -28,7 +28,7 @@ export function Navbar() {
               <span className="text-white font-heading font-bold text-sm">FI</span>
             </div>
             <span className="font-heading font-bold text-bark text-lg leading-tight">
-              Flagstaff<span className="text-forest-green">Insurance</span>
+              Flagstaff <span className="text-forest-green">Insurance</span>
             </span>
           </Link>
 
