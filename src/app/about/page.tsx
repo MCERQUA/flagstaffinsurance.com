@@ -10,7 +10,7 @@ import { SITE, CREDENTIALS } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Flagstaff Insurance",
-  description: `${SITE.name} — specialized insurance for flagstaff businesses since ${SITE.founded}. Licensed in all 50 states, A.M. Best A+ rated carriers.`,
+  description: `${SITE.name} — specialized insurance for flagstaff businesses since ${SITE.founded}. A.M. Best A+ rated carriers.`,
 };
 
 export default function AboutPage() {

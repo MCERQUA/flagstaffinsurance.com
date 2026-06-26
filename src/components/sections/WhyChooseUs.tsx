@@ -3,10 +3,10 @@ import { CheckCircle } from "lucide-react";
 import { FadeIn } from "@/components/animations/FadeIn";
 
 const REASONS = [
-  { title: "Independent Agency — We Work for You", desc: "We're not tied to one company. We shop your coverage across 12+ carriers to find the best combination of price and protection for your specific situation." },
+  { title: "Independent Agency — We Work for You", desc: "We're not tied to one company. We shop your coverage across 40+ carriers to find the best combination of price and protection for your specific situation." },
   { title: "Personal &amp; Commercial Lines", desc: "From auto and home for Flagstaff families to GL, workers comp, and commercial property for local businesses — we cover it all under one roof." },
   { title: "Same-Day Quotes &amp; Binding", desc: "Need coverage fast? We can quote, bind, and issue certificates the same day — whether it's a renters policy or a business package." },
-  { title: "Licensed in All 50 States", desc: "Whether you're a Flagstaff family or a business with operations across Arizona and beyond, we can bind coverage wherever you need it." },
+  { title: "Serving All of Northern Arizona", desc: "Whether you're in Flagstaff, Sedona, Williams, Winslow, or anywhere in between — we cover families and businesses across the region." },
   { title: "Founded in 2005", desc: "20+ years serving Northern Arizona. We know the local risks — wildfire exposure, mountain weather, and the Flagstaff market — and which carriers deliver." },
   { title: "Claims Advocacy", desc: "When a claim happens, we're in your corner — not hiding behind carrier call centers. Direct advocate support for every client." },
 ];
@@ -36,7 +36,7 @@ export function WhyChooseUs() {
                 Why Flagstaff Families &amp; Businesses Choose Us
               </h2>
               <p className="font-body text-muted leading-relaxed mb-8">
-                We're a local independent agency that shops your coverage across 12+ carriers. Whether you need home, auto, renters, life, or business insurance — we find the right fit at the right price for people of Northern Arizona.
+                We're a local independent agency that shops your coverage across 40+ carriers. Whether you need home, auto, renters, life, or business insurance — we find the right fit at the right price for people of Northern Arizona.
               </p>
             </FadeIn>
 

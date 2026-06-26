@@ -3,7 +3,7 @@ import { Shield, Award, MapPin, Clock, Users } from "lucide-react";
 const ITEMS = [
   { icon: Shield, text: "A.M. Best A+ Carriers" },
   { icon: Award, text: "Founded 2005" },
-  { icon: MapPin, text: "Licensed All 50 States" },
+  { icon: MapPin, text: "Serving Northern Arizona" },
   { icon: Clock, text: "Same-Day Quotes" },
   { icon: Users, text: "Flagstaff Specialists" },
 ];

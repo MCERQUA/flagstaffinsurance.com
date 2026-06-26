@@ -3,7 +3,7 @@ export const SITE = {
   domain: "flagstaffinsurance.com",
   url: "https://flagstaffinsurance.com",
   tagline: "Your Local Flagstaff Insurance — Auto, Home, Business, Commercial Auto, Workers Comp & Life",
-  description: "Flagstaff's independent insurance agency — shopping 12+ carriers for auto, home, business, commercial auto, workers comp, and life insurance. Serving Flagstaff, Sedona, Williams, and Northern Arizona since 2005. Free quotes, same-day service.",
+  description: "Flagstaff's independent insurance agency — shopping 40+ carriers for auto, home, business, commercial auto, workers comp, and life insurance. Serving Flagstaff, Sedona, Williams, and Northern Arizona since 2005. Free quotes, same-day service.",
   phone: "928-235-2151",
   phoneHref: "tel:+19282352151",
   email: "josh@contractorschoiceagency.com",
@@ -17,14 +17,14 @@ export const SITE = {
     country: "US",
   },
   hours: "Mon–Fri 8am–5pm (MST)",
-  statesLicensed: "All 50 states",
+  statesLicensed: "Arizona",
 } as const;
 
 export const SERVICES = [
   {
     slug: "auto-insurance",
     title: "Auto Insurance",
-    short: "Compare rates from 12+ carriers for Flagstaff drivers. Mountain roads, elk zones, and winter driving demand the right coverage.",
+    short: "Compare rates from 40+ carriers for Flagstaff drivers. Mountain roads, elk zones, and winter driving demand the right coverage.",
     icon: "Car",
     description:
       "Auto insurance in Flagstaff means more than minimum liability. With 100+ inches of annual snowfall, active elk crossing zones, and one of Arizona's highest uninsured driver rates, comprehensive protection matters.",
@@ -46,7 +46,7 @@ Flagstaff's 28,000+ NAU students create a large young-driver population. If you'
 
 ## How an Independent Agency Helps
 
-As an independent agency, we quote your auto insurance across 12+ carriers simultaneously — Progressive, Travelers, Safeco, Nationwide, and regional insurers that a direct-to-consumer company can't offer. The premium difference for identical coverage often reaches hundreds of dollars per year. We also evaluate bundle discounts when you pair auto with homeowners or renters insurance.
+As an independent agency, we quote your auto insurance across 40+ carriers simultaneously — Progressive, Travelers, Safeco, Nationwide, and regional insurers that a direct-to-consumer company can't offer. The premium difference for identical coverage often reaches hundreds of dollars per year. We also evaluate bundle discounts when you pair auto with homeowners or renters insurance.
 
 ## What We Cover
 
@@ -139,7 +139,7 @@ Call us for a free comparison quote across multiple carriers. We'll identify the
       },
       {
         q: "How much does home insurance cost in Flagstaff?",
-        a: "Home insurance in Flagstaff typically runs $1,200–$2,500 per year for a standard single-family home, depending on the home's age, construction type, location relative to wildfire risk zones, coverage limits, and deductible. Homes in higher WUI zones or with older systems typically cost more. We compare rates from 12+ carriers to find your best option.",
+        a: "Home insurance in Flagstaff typically runs $1,200–$2,500 per year for a standard single-family home, depending on the home's age, construction type, location relative to wildfire risk zones, coverage limits, and deductible. Homes in higher WUI zones or with older systems typically cost more. We compare rates from 40+ carriers to find your best option.",
       },
     ],
   },
@@ -457,7 +457,7 @@ export const TESTIMONIALS: readonly { quote: string; name: string; role: string;
 export const FAQS = [
   {
     q: "Why should I use an independent insurance agency instead of going direct?",
-    a: "An independent agency shops your coverage across 12+ carriers simultaneously — the same coverage that one direct insurer quotes you at $1,800/year might be $1,200/year at another. Independent agents also work for you, not for the insurance company. When you have a claim or need to change your coverage, you have an advocate in your corner, not a company call center.",
+    a: "An independent agency shops your coverage across 40+ carriers simultaneously — the same coverage that one direct insurer quotes you at $1,800/year might be $1,200/year at another. Independent agents also work for you, not for the insurance company. When you have a claim or need to change your coverage, you have an advocate in your corner, not a company call center.",
   },
   {
     q: "What does 'independent insurance agency' mean?",
@@ -483,7 +483,7 @@ export const FAQS = [
 
 export const CREDENTIALS = [
   "Independent Insurance Agency",
-  "Licensed in All 50 States",
+  "Independent Agency",
   "NPN #8608479",
   "Founded 2005",
   "A.M. Best A+ Rated Carriers",

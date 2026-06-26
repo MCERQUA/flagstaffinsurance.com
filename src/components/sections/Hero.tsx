@@ -6,7 +6,7 @@ import { FadeIn } from "@/components/animations/FadeIn";
 
 const HIGHLIGHTS = [
   "Same-day quote turnaround",
-  "Licensed all 50 states",
+  "40+ insurance carriers",
   "Serving Flagstaff since 2005",
 ];
 
@@ -33,7 +33,7 @@ export function Hero() {
 
             <FadeIn delay={0.1}>
               <p className="font-body text-lg text-muted leading-relaxed mb-8 max-w-lg">
-                Auto, home, renters, life, and business coverage — all under one roof. We shop 12+ carriers to find the right protection for Flagstaff families, homeowners, and local businesses. Same-day quotes, competitive rates.
+                Auto, home, renters, life, and business coverage — all under one roof. We shop 40+ carriers to find the right protection for Flagstaff families, homeowners, and local businesses. Same-day quotes, competitive rates.
               </p>
             </FadeIn>
 
@@ -81,7 +81,7 @@ export function Hero() {
             <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur rounded-xl p-4 shadow-lg">
               <p className="font-body text-xs text-muted mb-1">Most Popular Bundle</p>
               <p className="font-heading font-bold text-bark text-sm">Auto + Home + Umbrella Package</p>
-              <p className="font-body text-xs text-forest-green font-bold mt-1">Compare rates from 12+ carriers</p>
+              <p className="font-body text-xs text-forest-green font-bold mt-1">Compare rates from 40+ carriers</p>
             </div>
           </FadeIn>
         </div>

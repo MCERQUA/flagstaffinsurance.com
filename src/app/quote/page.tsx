@@ -214,7 +214,7 @@ export default function QuotePage() {
                       Why Choose Us
                     </h3>
                     {[
-                      "Licensed in All 50 States",
+                      "Serving Northern Arizona",
                       "Same-Day Quote Turnaround",
                       "Niche Insurance Specialists",
                       "A.M. Best A+ Rated Carriers",

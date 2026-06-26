@@ -16,7 +16,7 @@ export function ServicesGrid() {
             <p className="font-body text-sm font-bold text-ember-orange uppercase tracking-widest mb-3">Coverage Options</p>
             <h2 className="font-heading text-3xl sm:text-4xl text-bark font-bold mb-4">Coverage for Every Stage of Life in Flagstaff</h2>
             <p className="font-body text-muted max-w-2xl mx-auto">
-              Personal lines for families, renters, and homeowners — commercial coverage for Flagstaff businesses. One independent agency, 12+ carriers, same-day service.
+              Personal lines for families, renters, and homeowners — commercial coverage for Flagstaff businesses. One independent agency, 40+ carriers, same-day service.
             </p>
           </div>
         </FadeIn>

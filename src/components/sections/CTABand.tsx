@@ -12,7 +12,7 @@ export function CTABand() {
             Ready to Protect What Matters Most?
           </h2>
           <p className="font-body text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-            Get a free quote in minutes. Home, auto, renters, life, and business insurance — we shop 12+ carriers for the people of Flagstaff and surrounding areas. Over 20 years of local service.
+            Get a free quote in minutes. Home, auto, renters, life, and business insurance — we shop 40+ carriers for the people of Flagstaff and surrounding areas. Over 20 years of local service.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

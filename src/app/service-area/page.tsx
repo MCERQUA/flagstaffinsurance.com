@@ -52,7 +52,7 @@ export default function ServiceAreaPage() {
                 Serving Flagstaff, Coconino County<br className="hidden sm:block" /> & All of Northern Arizona
               </h1>
               <p className="font-body text-white/80 text-lg max-w-2xl leading-relaxed">
-                As an independent agency licensed in all 50 states, we serve clients throughout Northern Arizona — from Flagstaff to Sedona, Williams to Winslow, and everywhere in between.
+                As an independent agency, we serve clients throughout Northern Arizona — from Flagstaff to Sedona, Williams to Winslow, and everywhere in between.
               </p>
             </FadeIn>
           </div>
@@ -110,7 +110,7 @@ export default function ServiceAreaPage() {
                       Get a Quote in Your Area
                     </h3>
                     <p className="font-body text-white/70 text-sm mb-5 leading-relaxed">
-                      No matter where you are in Northern Arizona, we compare rates from 12+ carriers to find you the best coverage for your needs.
+                      No matter where you are in Northern Arizona, we compare rates from 40+ carriers to find you the best coverage for your needs.
                     </p>
                     <div className="space-y-3">
                       <Link
