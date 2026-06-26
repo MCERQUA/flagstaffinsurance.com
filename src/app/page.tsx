@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
+import { FlagstaffSlideshow } from "@/components/sections/FlagstaffSlideshow";
 import { Process } from "@/components/sections/Process";
 import { Stats } from "@/components/sections/Stats";
 import { FAQ } from "@/components/sections/FAQ";
@@ -18,6 +19,7 @@ export default function HomePage() {
         <TrustBar />
         <ServicesGrid />
         <WhyChooseUs />
+        <FlagstaffSlideshow />
         <Process />
         <Stats />
         <FAQ />
