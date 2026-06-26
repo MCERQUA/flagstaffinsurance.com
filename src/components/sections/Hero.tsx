@@ -7,7 +7,7 @@ import { FadeIn } from "@/components/animations/FadeIn";
 const HIGHLIGHTS = [
   "Same-day quote turnaround",
   "Licensed all 50 states",
-  "Flagstaff industry specialists",
+  "Serving Flagstaff since 2005",
 ];
 
 export function Hero() {
@@ -20,21 +20,20 @@ export function Hero() {
             <FadeIn>
               <div className="inline-flex items-center gap-2 bg-ember-orange/10 border border-ember-orange/20 rounded-full px-4 py-1.5 mb-6">
                 <span className="w-2 h-2 bg-ember-orange rounded-full" />
-                <span className="font-body text-sm font-bold text-ember-orange">Flagstaff Business Specialists</span>
+                <span className="font-body text-sm font-bold text-ember-orange">Serving Flagstaff &amp; Northern Arizona</span>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.05}>
               <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-bark font-bold leading-tight mb-6">
-                Insurance for{" "}
-                <span className="text-forest-green">Flagstaff</span>{" "}
-                Contractors
+                Insurance for the{" "}
+                <span className="text-forest-green">People of Flagstaff</span>
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.1}>
               <p className="font-body text-lg text-muted leading-relaxed mb-8 max-w-lg">
-                GL, workers comp, and completed operations coverage built for wood and steel flagstaff businesses. From residential crews to commercial flagstaff operations — same-day quotes, competitive rates.
+                Auto, home, renters, life, and business coverage — all under one roof. We shop 12+ carriers to find the right protection for Flagstaff families, homeowners, and local businesses. Same-day quotes, competitive rates.
               </p>
             </FadeIn>
 
@@ -81,8 +80,8 @@ export function Hero() {
             <div className="absolute inset-0 bg-gradient-to-t from-bark/30 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur rounded-xl p-4 shadow-lg">
               <p className="font-body text-xs text-muted mb-1">Most Popular Bundle</p>
-              <p className="font-heading font-bold text-bark text-sm">GL + WC + Tools Package</p>
-              <p className="font-body text-xs text-forest-green font-bold mt-1">Starting from $3,800/year</p>
+              <p className="font-heading font-bold text-bark text-sm">Auto + Home + Umbrella Package</p>
+              <p className="font-body text-xs text-forest-green font-bold mt-1">Compare rates from 12+ carriers</p>
             </div>
           </FadeIn>
         </div>

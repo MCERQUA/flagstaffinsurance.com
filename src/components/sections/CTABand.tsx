@@ -9,10 +9,10 @@ export function CTABand() {
       <div className="container-xl text-center">
         <FadeIn>
           <h2 className="font-heading text-3xl sm:text-4xl text-white font-bold mb-4">
-            Ready to Protect Your Flagstaff Operation?
+            Ready to Protect What Matters Most?
           </h2>
           <p className="font-body text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-            Get a comprehensive quote in minutes. Same-day binding, same-day certificates. Over 20 years protecting flagstaff businesses.
+            Get a free quote in minutes. Home, auto, renters, life, and business insurance — we shop 12+ carriers for the people of Flagstaff and surrounding areas. Over 20 years of local service.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
