@@ -57,6 +57,7 @@ export function Footer() {
                 </li>
               ))}
               <li><Link href="/quote" className="font-body text-sm text-ember-orange hover:text-ember-orange-light transition-colors">Get a Quote</Link></li>
+              <li><Link href="/homeowners-application" className="font-body text-sm text-white/70 hover:text-ember-orange transition-colors">Homeowners Application</Link></li>
             </ul>
           </div>
 

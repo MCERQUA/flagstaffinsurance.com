@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://flagstaffinsurance.com";
-  const staticPages = ["/", "/about", "/contact", "/quote", "/services", "/blog", "/privacy", "/terms"];
+  const staticPages = ["/", "/about", "/contact", "/quote", "/homeowners-application", "/services", "/blog", "/privacy", "/terms"];
   return [
     ...staticPages,
     ...SERVICES.map((s) => `/services/${s.slug}`),
