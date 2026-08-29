@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { Clock, Calendar, ArrowRight } from "lucide-react";
+import { Clock, Calendar } from "lucide-react";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { CTABand } from "@/components/sections/CTABand";
@@ -10,8 +10,8 @@ import { getAllPosts } from "@/lib/blog";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Flagstaff Business Insurance Blog",
-  description: `Guides on GL, workers comp, completed operations, and surety bonds for flagstaff businesses. Expert advice from ${SITE.name}.`,
+  title: "Flagstaff Insurance Blog",
+  description: `Wildfire, snow load, post-fire flooding, short-term rentals, and contractor coverage — insurance guides written for Flagstaff and Coconino County by ${SITE.name}.`,
 };
 
 function formatDate(d: string) {
@@ -29,7 +29,7 @@ export default function BlogPage() {
             <FadeIn>
               <h1 className="font-heading text-4xl sm:text-5xl text-white font-bold mb-4">Flagstaff Insurance Blog</h1>
               <p className="font-body text-white/80 text-lg max-w-2xl">
-                Expert guides on insurance for wood and steel flagstaff businesses.
+                Coverage guides for life at 7,000 feet — wildfire, snow load, monsoon flooding, short-term rentals, and Northern Arizona business insurance.
               </p>
             </FadeIn>
           </div>

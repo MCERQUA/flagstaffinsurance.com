@@ -1,55 +1,86 @@
-framinginsurance.com — BUILD STATUS
+flagstaffinsurance.com — BUILD STATUS
 ======================================
-Build: GREEN (pnpm build exits 0)
-Date: 2026-06-21
+Build: GREEN (next build exits 0, static export)
+Date: 2026-08-29
 
-QUALITY GATE CHECKLIST
-----------------------
-✅ 7 service pages (GL, WC, tools, commercial auto, completed ops, surety bond, umbrella)
-✅ 4 blog posts (MDX in src/content/posts/)
-✅ 9 homepage sections (Hero, TrustBar, ServicesGrid, WhyChooseUs, Process, Stats, Testimonials, FAQ, CTABand)
-✅ pnpm build exits 0 — 24 static routes generated
-✅ 9 real HF FLUX.1-schnell generated images (all >10KB)
-✅ Netlify forms (quote + contact) with webhook in netlify.toml
-✅ sitemap.ts + robots.ts + public/llms.txt present
+NOTE: this file previously contained a stale copy of the framinginsurance.com
+build status (wrong domain, wrong route list, claimed 4 blog posts that never
+existed in this repo). Replaced 2026-08-29.
 
-ROUTE COUNT: 24 routes
-- / (homepage)
-- /about
-- /blog
-- /blog/framing-contractor-insurance-guide
-- /blog/fall-protection-workers-comp-framers
-- /blog/completed-operations-framing-contractors
-- /blog/general-liability-framing-subcontractors
-- /contact
-- /privacy
-- /quote
-- /robots.txt
-- /services
-- /services/general-liability-insurance
-- /services/workers-compensation-insurance
-- /services/tools-equipment-insurance
-- /services/commercial-auto-insurance
-- /services/completed-operations-coverage
-- /services/contractor-surety-bond
-- /services/commercial-umbrella-insurance
-- /sitemap.xml
-- /terms
-- /_not-found
+CONTENT CATCH-UP — 2026-08-29
+-----------------------------
+flagstaffinsurance.com is a LEASED PREMIUM domain (P0) with a standing
+obligation of 2 blog posts/month. Before this pass it had ONE post
+(dated 2025-06-01) and — critically — NO /blog/[slug] route at all, so
+that single post 404'd. The blog was effectively empty, not merely thin.
 
-DESIGN SYSTEM
--------------
+Fixed in this pass:
+- CREATED src/app/blog/[slug]/page.tsx (did not exist; index linked to a 404)
+- CREATED src/lib/markdown.tsx — markdown subset renderer supporting
+  h2/h3, ul, ol, tables, blockquote, links, bold. The services/[slug]
+  inline renderer only handles h2/h3/ul/bold and would have dropped
+  tables, ordered lists and links from the new posts.
+- Added BlogPosting JSON-LD + per-post canonical + OpenGraph metadata
+- Fixed framing-template copy that leaked into the blog index
+  ("wood and steel flagstaff businesses")
+- 6 new posts, 1,629-1,784 words each, dated across 2026
+- 6 new hero images (1280x720 JPEG, 114-289 KB)
+
+BLOG POSTS (7 total after this pass)
+------------------------------------
+2026-08-25  arizona-contractor-insurance-roc-requirements-flagstaff   1713w
+2026-07-21  short-term-rental-insurance-flagstaff-airbnb-vrbo         1784w
+2026-06-16  flagstaff-flood-insurance-burn-scars-monsoon              1679w
+2026-04-14  non-renewed-coconino-county-wildfire-risk-options         1629w
+2026-02-10  does-homeowners-insurance-cover-wildfire-northern-arizona 1646w
+2026-01-20  snow-load-ice-dams-roof-collapse-flagstaff                1716w
+2025-06-01  flagstaff-insurance-guide                                  393w  (pre-existing)
+
+IMAGES ADDED (HF FLUX.1-schnell via router.huggingface.co/nscale)
+-----------------------------------------------------------------
+blog-wildfire-home.jpg · blog-defensible-space.jpg · blog-post-fire-flood.jpg
+blog-snow-load.jpg · blog-short-term-rental.jpg · blog-contractor.jpg
+All 1280x720, quality 82 progressive JPEG, 114-289 KB.
+next.config has images:{unoptimized:true}, so these are served as-authored.
+
+STITCH COVERAGE: 0 screens — DELIBERATE, NOT QUOTA-BLOCKED
+-----------------------------------------------------------
+The pre-deploy gate WARNs at 0 Stitch screens. Stitch quota was available;
+Stitch was not used, for two reasons:
+1. This pass needed PHOTOGRAPHIC hero images (snow-loaded roofs, burn-scar
+   flooding, WUI defensible space). Stitch generates UI/screen designs, which
+   is the wrong asset class. FLUX is the correct generator and is what the
+   site's existing images already used.
+2. The new /blog/[slug] route was built to match the EXISTING design system
+   (forest-green #2D4A22 / ember-orange #E8821A / Raleway+Lato) so the post
+   pages are visually continuous with the rest of the site. A Stitch-generated
+   layout would have introduced a second design language on one route.
+If a future pass adds a genuinely new screen type, Stitch is the right tool.
+
+DESIGN SYSTEM (unchanged)
+-------------------------
 Primary: #2D4A22 (forest green)
 Accent/CTA: #E8821A (ember orange)
 Background: #FDFAF7 (warm white)
+Text: #1C2B1A (bark) / #6B7280 (muted) / #DDD5CB (border)
 Fonts: Raleway (headings) + Lato (body)
-Style: Warm, structural, professional — framing/lumber aesthetic
+No purple, no pink, no blue gradients, no emojis — gate-verified.
 
-IMAGES (9 total)
-----------------
-hero-framing.jpg, gl-insurance.jpg, workers-comp.jpg, tools-lumber.jpg,
-framing-structure.jpg, steel-framing.jpg, about-agent.jpg, og-image.jpg, blog-default.jpg
+CONTACT USED IN NEW CONTENT
+---------------------------
+Phone 844-967-5247 · josh@contractorschoiceagency.com (canonical CCA NAP)
+
+*** KNOWN NAP CONFLICT — NEEDS AN OWNER DECISION ***
+src/lib/site.ts sets phone "928-235-2151" (commit be47db0), which is what the
+Navbar, Footer and every service page render. public/llms.txt and all six new
+blog posts use 844-967-5247. Two different numbers are live on the same site.
+This predates this pass but is now more visible. Pick one and make site.ts,
+llms.txt and the post bodies agree — NAP consistency is a local-SEO ranking
+factor and this split is actively costing.
 
 STACK
 -----
-Next.js 15.5.19 · React 19 · TypeScript · Tailwind v3 · motion · lenis · lucide-react · gray-matter
+Next.js 15.5.19 · React 19 · TypeScript · Tailwind v3 · motion · lenis
+lucide-react · gray-matter · reading-time
+output:"export" (static) — required for Netlify Forms capture.
+@netlify/plugin-nextjs INTENTIONALLY absent; do not re-add.
