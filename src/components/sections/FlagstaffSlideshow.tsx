@@ -4,26 +4,35 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+// Photographs of the actual Flagstaff landmarks, sourced from Wikimedia Commons.
+// Each alt describes what is IN the frame; each credit names the photographer and licence.
+// The previous four files were mislabelled stock: "san-francisco-peaks.jpg" was a man in a
+// workshop, "lowell-observatory.jpg" a generic Milky Way, "flagstaff-forest.jpg" alpine peaks
+// above a cloud sea, "route-66.jpg" a red apple. Do not swap these for stock again.
 const slides = [
   {
     src: "/images/flagstaff/san-francisco-peaks.jpg",
-    alt: "San Francisco Peaks — Flagstaff's iconic volcanic mountain range",
+    alt: "The snow-capped San Francisco Peaks rising above juniper high desert north of Flagstaff, Arizona",
     caption: "San Francisco Peaks",
+    credit: "Bernard Gagnon / Wikimedia Commons, CC BY-SA 3.0",
   },
   {
     src: "/images/flagstaff/lowell-observatory.jpg",
-    alt: "Clear dark skies above Flagstaff — home of Lowell Observatory",
-    caption: "Lowell Observatory & Dark Sky Country",
-  },
-  {
-    src: "/images/flagstaff/flagstaff-forest.jpg",
-    alt: "Ponderosa pine forest surrounding Flagstaff, Arizona",
-    caption: "Ponderosa Pine Country",
+    alt: "The open dome of Lowell Observatory in Flagstaff with the historic Clark refracting telescope inside",
+    caption: "Lowell Observatory",
+    credit: "Mukhtiaraliunar / Wikimedia Commons, CC BY-SA 4.0",
   },
   {
     src: "/images/flagstaff/route-66.jpg",
-    alt: "Historic Route 66 through Northern Arizona",
+    alt: "A large Flagstaff Route 66 highway shield sign mounted on a brick wall downtown",
     caption: "Historic Route 66",
+    credit: "Marine 69-71 / Wikimedia Commons, public domain",
+  },
+  {
+    src: "/images/flagstaff/downtown-flagstaff.jpg",
+    alt: "Downtown Flagstaff at dusk, with lit storefronts and the Hotel Monte Vista sign along the street",
+    caption: "Downtown Flagstaff",
+    credit: "Deborah Lee Soltesz / Wikimedia Commons, CC0",
   },
 ];
 
@@ -80,8 +89,11 @@ export function FlagstaffSlideshow() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-6 right-16">
-                <span className="text-white font-heading font-semibold text-lg drop-shadow">
+                <span className="text-white font-heading font-semibold text-lg drop-shadow block">
                   {slide.caption}
+                </span>
+                <span className="text-white/70 text-[11px] drop-shadow block mt-0.5">
+                  {slide.credit}
                 </span>
               </div>
             </div>
