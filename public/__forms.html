@@ -9,16 +9,51 @@
 <form name="quote" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
   <input type="hidden" name="form-name" value="quote" />
   <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
+  <!--
+    insurance-agency-multiline: /quote renders ONE section chosen by
+    insuranceType. Netlify stores only names it has seen declared, so this
+    declares the UNION of all three sections; a submission posts the common
+    block plus the active section only.
+  -->
+  <input name="insuranceType" />
+
+  <!-- common -->
   <input name="name" />
   <input name="email" />
   <input name="phone" />
+  <input name="state" />
+  <textarea name="message"></textarea>
+
+  <!-- personal lines (home / auto / renters) -->
+  <input name="date_of_birth" />
+  <input name="mailing_address" />
+  <input name="city" />
+  <input name="zip" />
+  <input name="property_street_address" />
+  <input name="drivers_license_number" />
+  <input name="current_carrier_name" />
+  <input name="current_policy_number" />
+  <input name="current_policy_expiration_date" />
+  <input name="requested_effective_date" />
+
+  <!-- commercial (business) -->
   <input name="company" />
   <input name="operationType" />
   <input name="annualRevenue" />
   <input name="crewSize" />
   <input name="coverageNeeded" />
-  <input name="state" />
-  <textarea name="message"></textarea>
+  <input name="street_address" />
+  <input name="fein" />
+  <input name="year_business_started" />
+  <textarea name="business_description"></textarea>
+  <input name="prior_carrier_name" />
+  <input name="prior_policy_number" />
+  <input name="prior_policy_expiration" />
+
+  <!-- life -->
+  <input name="coverage_amount" />
+  <input name="interest" />
+  <input name="age" />
 </form>
 
 <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>

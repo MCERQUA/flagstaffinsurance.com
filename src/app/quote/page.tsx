@@ -19,11 +19,65 @@ const COVERAGE_OPTIONS = [
   "Full Package",
 ];
 
+/* insurance-agency-multiline (forms-required-fields.json). This agency writes
+   home, auto, business, life and renters, so the quote form asks the coverage
+   type first and then renders ONE section: the personal-lines core, the
+   commercial set, or the life set. public/__forms.html declares the union of
+   all three because Netlify only stores names it has seen declared; the form
+   posts a FormData of what is actually mounted, so a life lead never carries
+   the nine commercial columns. No existing field name is renamed — the
+   commercial fields this form always had simply moved into the branch that
+   asks for them, instead of being put to a homeowner. */
+const INSURANCE_TYPES = [
+  "Home Insurance",
+  "Auto Insurance",
+  "Business Insurance",
+  "Life Insurance",
+  "Renters Insurance",
+  "Bundle (home + auto)",
+  "Something else / not sure",
+];
+
+const BRANCH_OF: Record<string, "personal" | "business" | "life"> = {
+  "Home Insurance": "personal",
+  "Auto Insurance": "personal",
+  "Business Insurance": "business",
+  "Life Insurance": "life",
+  "Renters Insurance": "personal",
+  "Bundle (home + auto)": "personal",
+  // Nothing fits "not sure"; personal lines is this agency's larger book and
+  // the notes field catches the rest.
+  "Something else / not sure": "personal",
+};
+
+const LIFE_INTEREST = [
+  "Term life",
+  "Whole life",
+  "Universal life / IUL",
+  "Final expense",
+  "Not sure — explain my options",
+];
+
 export default function QuotePage() {
   const [formData, setFormData] = useState({
+    insuranceType: "",
     name: "", email: "", phone: "", company: "",
     operationType: "", annualRevenue: "", crewSize: "",
     coverageNeeded: "", state: "", message: "",
+
+    // personal lines
+    date_of_birth: "", mailing_address: "", city: "", zip: "",
+    property_street_address: "", drivers_license_number: "",
+    current_carrier_name: "", current_policy_number: "",
+    current_policy_expiration_date: "", requested_effective_date: "",
+
+    // commercial
+    street_address: "", fein: "", year_business_started: "",
+    business_description: "", prior_carrier_name: "",
+    prior_policy_number: "", prior_policy_expiration: "",
+
+    // life
+    coverage_amount: "", interest: "", age: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -63,6 +117,31 @@ export default function QuotePage() {
         onChange={(e) => setFormData({ ...formData, [name]: e.target.value })}
         className="w-full px-4 py-2.5 border border-border rounded-lg font-body text-sm text-bark focus:outline-none focus:border-forest-green bg-white"
       />
+    </div>
+  );
+
+  const branch = BRANCH_OF[formData.insuranceType] ?? "personal";
+
+  const area = (name: keyof typeof formData, label: string, required = true) => (
+    <div key={name}>
+      <label className="block font-body text-sm font-bold text-bark mb-1.5">
+        {label}{required && <span className="text-ember-orange ml-1">*</span>}
+      </label>
+      <textarea
+        name={name}
+        rows={3}
+        required={required}
+        value={formData[name]}
+        onChange={(e) => setFormData({ ...formData, [name]: e.target.value })}
+        className="w-full px-4 py-2.5 border border-border rounded-lg font-body text-sm text-bark focus:outline-none focus:border-forest-green resize-none bg-white"
+      />
+    </div>
+  );
+
+  const sectionHead = (title: string, note: string) => (
+    <div className="border-t border-border pt-5">
+      <h3 className="font-heading text-lg text-bark font-bold">{title}</h3>
+      <p className="font-body text-sm text-muted mt-1">{note}</p>
     </div>
   );
 
@@ -134,30 +213,106 @@ export default function QuotePage() {
                           <label>Don&apos;t fill this out: <input name="bot-field" /></label>
                         </p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                          {field("name", "Full Name")}
-                          {field("company", "Company / Business Name")}
-                          {field("email", "Email Address", "email")}
-                          {field("phone", "Phone Number", "tel")}
-                        </div>
+                        {select("insuranceType", "What do you need insured?", INSURANCE_TYPES)}
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                          {select("operationType", "Type of Operation", [
-                            "Individual / Sole Proprietor",
-                            "Small Business (2–10 employees)",
-                            "Mid-size Business (11–50)",
-                            "Large Business (50+)",
-                          ])}
-                          {select("annualRevenue", "Annual Revenue", [
-                            "Under $100K", "$100K–$250K", "$250K–$500K",
-                            "$500K–$1M", "$1M–$2.5M", "Over $2.5M",
-                          ])}
-                          {select("crewSize", "Number of Employees", [
-                            "1 (Owner only)", "2–5", "6–10", "11–20", "21–50", "50+",
-                          ])}
-                          {select("coverageNeeded", "Coverage Needed", COVERAGE_OPTIONS)}
-                          {field("state", "Primary State of Operations")}
+                          {field("name", "Full Name")}
+                          {field("email", "Email Address", "email")}
+                          {field("phone", "Phone Number", "tel")}
+                          {field("state", "State", "text", false)}
                         </div>
+
+                        {/* ONE section, chosen by insuranceType. All three are
+                            declared in public/__forms.html; only the mounted one
+                            posts, because handleSubmit sends new FormData(form). */}
+                        {branch === "personal" && (
+                          <>
+                            {sectionHead(
+                              "About You and the Property",
+                              "What the carriers need to rate a home, auto or renters policy — the same questions they would ask on the phone."
+                            )}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                              {field("date_of_birth", "Date of Birth", "date")}
+                              {field("drivers_license_number", "Driver License Number", "text", false)}
+                            </div>
+                            {field("mailing_address", "Current Mailing Address")}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                              {field("city", "City")}
+                              {field("zip", "ZIP")}
+                            </div>
+                            {field("property_street_address", "Property Street Address")}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                              {field("current_carrier_name", "Current Carrier")}
+                              {field("current_policy_number", "Current Policy Number")}
+                            </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                              {field("current_policy_expiration_date", "Current Policy Expires", "date")}
+                              {field("requested_effective_date", "Requested Effective Date", "date", false)}
+                            </div>
+                            <p className="font-body text-sm text-muted">
+                              Insuring a home?{" "}
+                              <a href="/homeowners-application" className="text-forest-green font-bold underline">
+                                Fill out the full homeowners application
+                              </a>{" "}
+                              instead and we can bind faster.
+                            </p>
+                          </>
+                        )}
+
+                        {branch === "business" && (
+                          <>
+                            {sectionHead(
+                              "About the Business",
+                              "Commercial carriers rate off the entity and its operations — this is the ACORD 125 core."
+                            )}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                              {field("company", "Company / Business Name")}
+                              {field("fein", "Federal Employer ID Number (FEIN)")}
+                            </div>
+                            {field("street_address", "Business Street Address")}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                              {field("city", "City")}
+                              {field("zip", "ZIP")}
+                            </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                              {select("operationType", "Type of Operation", [
+                                "Individual / Sole Proprietor",
+                                "Small Business (2–10 employees)",
+                                "Mid-size Business (11–50)",
+                                "Large Business (50+)",
+                              ])}
+                              {field("year_business_started", "Year Business Started", "number")}
+                              {select("annualRevenue", "Annual Revenue", [
+                                "Under $100K", "$100K–$250K", "$250K–$500K",
+                                "$500K–$1M", "$1M–$2.5M", "Over $2.5M",
+                              ])}
+                              {select("crewSize", "Number of Employees", [
+                                "1 (Owner only)", "2–5", "6–10", "11–20", "21–50", "50+",
+                              ])}
+                            </div>
+                            {select("coverageNeeded", "Coverage Needed", COVERAGE_OPTIONS)}
+                            {area("business_description", "Description of Business")}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                              {field("prior_carrier_name", "Prior Insurance Carrier")}
+                              {field("prior_policy_number", "Prior Policy Number")}
+                            </div>
+                            {field("prior_policy_expiration", "Prior Policy Expiration Date", "date")}
+                          </>
+                        )}
+
+                        {branch === "life" && (
+                          <>
+                            {sectionHead(
+                              "About the Coverage",
+                              "Enough to shop the life market for you. No medical questions here."
+                            )}
+                            {select("interest", "What are you interested in?", LIFE_INTEREST)}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                              {field("coverage_amount", "Desired Coverage Amount / Monthly Budget")}
+                              {field("age", "Age", "number")}
+                            </div>
+                          </>
+                        )}
 
                         <div>
                           <label className="block font-body text-sm font-bold text-bark mb-1.5">
