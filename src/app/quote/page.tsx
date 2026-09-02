@@ -174,7 +174,7 @@ export default function QuotePage() {
                 Get a {SITE.name} Quote
               </h1>
               <p className="font-body text-white/80 text-lg max-w-xl">
-                Tell us about your operation and we&apos;ll prepare a competitive quote — same-day turnaround.
+                Tell us what you need insured — home, auto, business, life or renters — and we&apos;ll prepare a competitive quote, same-day turnaround.
               </p>
             </FadeIn>
           </div>
