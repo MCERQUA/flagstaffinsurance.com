@@ -10,7 +10,7 @@ export const SITE = {
   founded: 2005,
   npn: "8608479",
   address: {
-    street: "12220 E Riggs Road, Suite #105",
+    street: "12220 E Riggs Rd, Suite #104",
     city: "Chandler",
     state: "AZ",
     zip: "85249",
@@ -451,8 +451,6 @@ export const STATS = [
   { value: 6, suffix: "", label: "Lines of Coverage" },
   { value: 50, suffix: " States", label: "Licensed Nationwide" },
 ] as const;
-
-export const TESTIMONIALS: readonly { quote: string; name: string; role: string; location: string }[] = [];
 
 export const FAQS = [
   {
