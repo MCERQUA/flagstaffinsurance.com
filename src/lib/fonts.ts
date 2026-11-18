@@ -1,15 +1,20 @@
-import { Raleway, Lato } from "next/font/google";
+import localFont from "next/font/local";
 
-export const headingFont = Raleway({
-  subsets: ["latin"],
+export const headingFont = localFont({
+  src: [
+    { path: "./fonts/Raleway-variable.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/Raleway-variable.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/Raleway-variable.woff2", weight: "800", style: "normal" },
+  ],
   variable: "--font-heading",
-  weight: ["600", "700", "800"],
   display: "swap",
 });
 
-export const bodyFont = Lato({
-  subsets: ["latin"],
+export const bodyFont = localFont({
+  src: [
+    { path: "./fonts/Lato-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/Lato-700.woff2", weight: "700", style: "normal" },
+  ],
   variable: "--font-body",
-  weight: ["400", "700"],
   display: "swap",
 });
